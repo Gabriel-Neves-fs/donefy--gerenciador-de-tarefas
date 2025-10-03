@@ -12,7 +12,7 @@ function App() {
     },
     {
       id: 2,
-      title: "Dar uns cheiros na Gaby",
+      title: "Dar uns cheiros na Gatinha",
       description: "ela anda muito cheirosa, preciso dá uma fungada nela!",
       isCompleted: false,
     },
