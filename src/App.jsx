@@ -1,6 +1,8 @@
 import { useState } from "react";
 import AddTask from "./componets/AddTask";
 import Tasks from "./componets/Tasks";
+import logo from "./assets/donefylogo01.svg";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -41,21 +43,44 @@ function App() {
     setTasks(newTasks);
   }
 
+  function onAddTaskSubmit(title, description) {
+    const newTask = {
+      id: uuidv4(),
+      title,
+      description,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTask]);
+  }
+
   return (
     <div
-      className="w-screen h-screen bg-slate-700 flex justify-center
+      className="min-h-screen h-screen bg-slate-700 flex justify-center
        p-6"
     >
       <div className="w-[500px] flex flex-col gap-5 wrap-normal">
-        <h1 className="text-3xl gap-5 text-white font-bold text-center">
-          Gerenciador de Tarefas
-        </h1>
-        <AddTask />
+        <img className="w-60 mx-auto" src={logo} alt="Logo" />
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
           onTaskClick={onTaskClick}
           deleteTask={deleteTask}
         />
+        <footer className="text-center text-white">
+          <p>
+            Desenvolvido por
+            <span className="font-bold hover: underline">
+              {" "}
+              <a
+                href="https://www.linkedin.com/in/gabriel-neves-4194a4389/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Gabriel Neves
+              </a>
+            </span>
+          </p>
+        </footer>
       </div>
     </div>
   );
