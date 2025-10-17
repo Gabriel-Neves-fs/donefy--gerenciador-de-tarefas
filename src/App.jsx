@@ -1,30 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./componets/AddTask";
 import Tasks from "./componets/Tasks";
 import logo from "./assets/donefylogo01.svg";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Estudar Programação",
-      description: "Estudar react, e fazer o gerenciador de tarefas!",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "Dar uns cheiros na Gatinha",
-      description: "ela anda muito cheirosa, preciso dá uma fungada nela!",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "Estudar React",
-      description: "Estudar react, e fazer o gerenciador de tarefas!",
-      isCompleted: false,
-    },
-  ]);
+  // LISTA DE TAREFAS COM LOCALSTORAGE
+
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  // FUNÇÃO PARA MARCAR TAREFA COMO COMPLETA
 
   function onTaskClick(tasksId) {
     const newTasks = tasks.map((task) => {
@@ -38,10 +28,14 @@ function App() {
     setTasks(newTasks);
   }
 
+  // FUNÇÃO PARA DELETAR A TAREFA
+
   function deleteTask(taskId) {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   }
+
+  // FUNÇÃO PARA ADICIONAR NOVA TAREFA
 
   function onAddTaskSubmit(title, description) {
     const newTask = {
@@ -52,6 +46,8 @@ function App() {
     };
     setTasks([...tasks, newTask]);
   }
+
+  // RENDERIZAÇÃO DO APP
 
   return (
     <div
