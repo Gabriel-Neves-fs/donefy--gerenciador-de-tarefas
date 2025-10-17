@@ -14,11 +14,11 @@ function Taskpages() {
       <div className=" relative w-[500px] gap-2 flex flex-col wrap-normal  ">
         <button
           onClick={() => navigate(-1)}
-          className=" absolute left-0 mt-5 mb-5 p-2  hover:bg-slate-400 rounded-md text-white   break-words"
+          className="  absolute left-0  mt-5 mb-5 p-2  hover:bg-slate-400 rounded-md text-white   break-words"
         >
           <CircleChevronLeft />
         </button>
-        <h1 className=" text-center  text-3xl  text-white   p-3 rounded-md  font-semibold ">
+        <h1 className=" text-center  text-2xl  text-white  p-5  rounded-md  font-semibold ">
           Detalhes da Tarefa
         </h1>
 
