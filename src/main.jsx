@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Taskpages from "./pages/Taskpages.jsx";
+import { Home } from "lucide-react";
 
 let router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ let router = createBrowserRouter([
   {
     path: "/tasks",
     element: <Taskpages />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
   },
 ]);
 
