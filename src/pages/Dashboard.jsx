@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import AddTask from "../componets/AddTask";
 import Tasks from "../componets/Tasks";
-import logo from "./assets/donefylogo01.svg";
+import logo from "../assets/donefylogo01.svg";
 import { v4 as uuidv4 } from "uuid";
 
-function Home() {
+function Dashboard() {
   // LISTA DE TAREFAS COM LOCALSTORAGE
 
   const [tasks, setTasks] = useState(
@@ -82,4 +82,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Dashboard;

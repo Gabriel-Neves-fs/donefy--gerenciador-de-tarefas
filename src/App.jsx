@@ -1,32 +1,18 @@
-import logo from "./assets/donefylogo01.svg";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Taskpages from "./pages/Taskpages.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 function App() {
   return (
-    <div
-      className="min-h-screen h-screen items-center bg-slate-700 flex justify-center
-       p-6"
-    >
-      <div className=" w-[400px] flex  flex-col gap-5 wrap-normal ">
-        <img className="w-60 mx-auto" src={logo} alt="Logo" />
-        <div className="space-y-4 p-4 bg-slate-400 rounded-md shadow-2xl">
-          <h1
-            className="text-center text-2xl text-white
-         font-bold"
-          >
-            Seja Bem Vindo! <br />
-            <span className=" text-xl">Faça seu Login</span>
-          </h1>
-          <div className="flex flex-col justify-center items-center">
-            <button className="flex gap-2 items-center bg-white border border-none px-4 py-2 rounded-md shadow-sm hover:shadow-lg cursor-pointer">
-              <img src="/google-icon.svg" alt="Google" width={30} height={30} />
-              <p className=" font-sans text-slate-700 font-semibold">
-                Entrar com o Google
-              </p>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+
+        <Route path="/tasks" element={<Taskpages />} />
+
+        <Route path="/home" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
