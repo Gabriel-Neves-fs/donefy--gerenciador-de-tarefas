@@ -3,8 +3,11 @@ import AddTask from "../componets/AddTask";
 import Tasks from "../componets/Tasks";
 import logo from "../assets/donefylogo01.svg";
 import { v4 as uuidv4 } from "uuid";
+import { LogOutIcon } from "lucide-react";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebaseConfig";
 
-function Dashboard() {
+function Dashboard({ user = { displayName: "User" } }) {
   // LISTA DE TAREFAS COM LOCALSTORAGE
 
   const [tasks, setTasks] = useState(
@@ -56,6 +59,15 @@ function Dashboard() {
     >
       <div className="w-[500px] flex flex-col gap-5 wrap-normal">
         <img className="w-60 mx-auto" src={logo} alt="Logo" />
+        <p className="text-white text-center">Bem-vindo, {user.displayName}!</p>
+        <div className="flex justify-end text-white">
+          <button
+            onClick={() => signOut(auth)}
+            className="p-2 bg-slate-400 rounded-md hover:bg-slate-500 shadow"
+          >
+            <LogOutIcon className="w-5 h-5 cursor-pointer text-white" />
+          </button>
+        </div>
         <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}

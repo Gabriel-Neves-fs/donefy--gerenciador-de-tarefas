@@ -33,7 +33,7 @@ function AddTask({ onAddTaskSubmit }) {
           setTitle("");
           setDescription("");
         }}
-        className="w-full bg-slate-700  hover:bg-slate-600 rounded-md p-2 font-semibold text-2x1 text-slate-100 "
+        className="w-full bg-slate-700  hover:bg-slate-600 rounded-md p-2 font-semibold text-2x1 text-slate-100 cursor-pointer "
       >
         Adicionar
       </button>

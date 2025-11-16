@@ -16,7 +16,7 @@ function Taskpages() {
           onClick={() => navigate(-1)}
           className="  absolute left-0  mt-5 mb-5 p-2  hover:bg-slate-400 rounded-md text-white   break-words"
         >
-          <CircleChevronLeft />
+          <CircleChevronLeft className="cursor-pointer" />
         </button>
         <h1 className=" text-center  text-2xl  text-white  p-5  rounded-md  font-semibold ">
           Detalhes da Tarefa

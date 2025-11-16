@@ -17,8 +17,8 @@ function Tasks({ tasks, onTaskClick, deleteTask }) {
             onClick={() => onTaskClick(tasks.id)}
             className={`${
               tasks.isCompleted
-                ? "bg-green-600 w-full text-left text-white p-3 rounded-md  font-semibold line-through break-words"
-                : "bg-slate-400 w-full text-left text-white p-3 rounded-md  font-semibold break-words"
+                ? "bg-green-600 w-full text-left text-white p-3 rounded-md  font-semibold line-through break-words cursor-pointer"
+                : "bg-slate-400 w-full text-left text-white p-3 rounded-md  font-semibold break-words cursor-pointer"
             }
             }`}
           >
@@ -26,15 +26,15 @@ function Tasks({ tasks, onTaskClick, deleteTask }) {
           </button>
           <button
             onClick={() => handleSeeTasks(tasks)}
-            className="bg-slate-400 hover:bg-slate-500 shadow text-white p-3 rounded-md"
+            className="bg-slate-400 hover:bg-slate-500 shadow text-white p-3 rounded-md "
           >
-            <ChevronRightCircle />
+            <ChevronRightCircle className="cursor-pointer" />
           </button>
           <button
             onClick={() => deleteTask(tasks.id)}
-            className="bg-slate-400 shadow hover:bg-slate-500 text-white p-3 rounded-md"
+            className="bg-slate-400 shadow hover:bg-slate-500 text-white p-3 rounded-md "
           >
-            <Trash2 />
+            <Trash2 className="cursor-pointer" />
           </button>
         </li>
       ))}
