@@ -3,7 +3,7 @@ import Login from "./pages/Login";
 import Taskpages from "./pages/Taskpages.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import { useEffect, useState } from "react";
-import { auth } from "../firebaseConfig";
+import { auth } from "..//firebaseConfig.js";
 
 function App() {
   const [user, setUser] = useState(null);
