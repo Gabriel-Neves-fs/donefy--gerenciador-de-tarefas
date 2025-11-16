@@ -59,7 +59,14 @@ function Dashboard({ user = { displayName: "User" } }) {
     >
       <div className="w-[500px] flex flex-col gap-5 wrap-normal">
         <img className="w-60 mx-auto" src={logo} alt="Logo" />
-        <p className="text-white text-center">Bem-vindo, {user.displayName}!</p>
+        <img
+          src={user.photoURL}
+          alt=""
+          className="w-20 h-20 rounded-full mx-auto"
+        />
+        <p className="text-white flex items-center justify-center gap-2">
+          Bem-vindo, {user.displayName}!
+        </p>
         <div className="flex justify-end text-white">
           <button
             onClick={() => signOut(auth)}
